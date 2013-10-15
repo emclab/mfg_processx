@@ -1,0 +1,27 @@
+<%= simple_form_for(@mfg_process) do |f| %>    
+  <% if false %>
+  <%= render inline: ERB.new(@erb_code).result(binding) %>
+  <% end %>
+  <% if true %>
+  <%= f.input :rfq_id, :label => t('RFQ#'), :readonly => true %>
+  <%= f.input :rfq_name, :label => t('RFQ Name/#'), :readonly => true, :input_html => {:value => @rfq.product_name + ' ' + @rfq.drawing_num} %>
+  <%= f.input :rfq_material, :label => t('RFQ Material'), :readonly => true, :input_html => {:value => @rfq.material_requirement} %>
+  <%= f.input :rfq_tech_spec, :label => t('RFQ Tech Spec'), :readonly => true, :input_html => {:value => @rfq.tech_spec} %>
+  <%= f.input :customer_name, :label => t('Customer'), :readonly => true, :input_html => {:value => @rfq.customer.try(:name)}%>
+  <%= f.input :name, :label => t('Process Name') %>
+  <%= f.input :description, :label => t('Process Desp'), :input_html => {:rows => 4}%>
+  
+  &nbsp;&nbsp;<%=t('Process Steps:') %>
+  <p><%= link_to_add_fields t('Add Step'), f, :process_steps %></p>
+  <%= f.input :note, :label => t('Note'), :input_html => {:rows => 4} %>
+  <% if readonly?(@mfg_process, 'void')%>
+        <%= f.input :void_noupdate, :label => t('Void'), :readonly => true, :required => false, :input_html => {:value => @mfg_process.void} %>
+      <% else %>
+        <%= f.input :void, :label => t('Void'), :collection => [[t('Yes'), true], [t('No'), false]]%>
+      <% end %>
+  <%= f.input :composed_by_name, :label => t('Composed By'), :input_html => {:value => @mfg_process.composed_by.name}, :readonly => true %>
+  <%= f.input :last_updated_by_name, :label => t('Last Updated By'), :input_html => {:value => @mfg_process.last_updated_by.name}, :readonly => true %>
+   
+  <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %>  
+  <% end %>
+<% end %> 

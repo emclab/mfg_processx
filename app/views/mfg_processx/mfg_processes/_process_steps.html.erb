@@ -1,0 +1,15 @@
+<div class="fields">
+    
+  <%= f.input :name, :label => t('Step Name') %> 
+  <%= f.input :step_desp, :label => t('Step Spec') %> 
+  <%= f.input :op_desp, :label => t('Operation Desp') %>
+  <%= f.input :insp_desp, :label => t('Inspection Desp') %>
+  <%= f.input :cutter_desp, :label => t('Cutter Desp') %>
+  <%= f.input :machine_tool_category_id, :label => t('Machine Category'), :collection => Commonx::CommonxHelper.return_misc_definitions('equipment_category'), :include_blank => true %>  
+  <%= f.input :step_duration_sec, :label => t('Step Duration(s)'), :placeholder => 'x.xx'%> 
+  <%= f.input :op_cost_hourly, :label => t('Operation Cost($/h)'), :placeholder => 'x.xx' %> 
+  <%= f.input :ranking_order, :label => t('Ranking Order'), :placeholder => '1,2,3...'%> 
+          
+  <%= link_to_remove_fields t('Delete'), f %>
+
+</div>

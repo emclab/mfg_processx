@@ -1,0 +1,62 @@
+<div id="main_body">
+<h4><%=t('Mfg Process Info') %></h4>
+
+<p>
+  <b><%= t('Process Name')  %></b>
+  <%= @mfg_process.name %>
+</p>
+<p>
+  <b><%= t('Process Description')  %></b>
+  <%= @mfg_process.description %>
+</p>
+<p>
+  <b><%= t('Customer') %></b>
+  <%= @rfq.customer.name  %>
+</p>
+<p>
+  <b><%= t('Composing Date') %></b>
+  <%= @mfg_process.created_at.strftime("%Y/%m/%d") %>
+</p>
+<p>
+  <b><%= t('Product Name/#') %></b>
+  <%= @mfg_process.rfq.product_name + ' ' + @mfg_process.rfq.drawing_num %>
+</p>
+<p>
+  <b><%= t('Material Requirement') %></b>
+  <%= @rfq.material_requirement %>
+</p>
+
+<p>
+  <b><%= t('Note') %></b>
+  <%= @mfg_process.note %>
+</p>
+<p>
+  <b><%= t('Void') %></b>
+  <%= @mfg_process.void ? t('Yes') : t('No') %>
+</p>
+<p>
+  <b><%= t('Composed by') %></b>
+  <%= @mfg_process.composed_by.name %>
+</p>
+<p>
+  <b><%= t('Last Updated By') %></b>
+  <%= @mfg_process.last_updated_by.name %>
+</p>
+<p>
+  <b><%= t('Process Steps:')%></b>
+  <% @mfg_process.process_steps.order("ranking_order").each do |t| %>
+    <p><%=t('#')%>:<%= t.ranking_order %></p>
+    <p><%=t('Step Name')%>:<%= t.name %></p>
+    <p><%=t('Step Desp')%>:<%= t.step_desp %></p>
+    <p><%=t('Operation Desp')%>:<%= t.op_desp %></p>
+    <p><%=t('Inspection Desp')%>:<%= t.insp_desp %></p>
+    <p><%=t('Cutter Desp')%>:<%= t.cutter_desp %></p>
+    <p><%=t('Operation Cost($/h)')%>:<%= t.op_cost_hourly %></p>
+    <p><%=t('Step Duration(s)')%>:<%= t.step_duration_sec %></p>
+    <p><%=t('Machine Category')%>:<%= t.machine_tool_category.name if t.machine_tool_category_id.present? %></p>  
+    <p></p>  
+  <% end %>
+</p>
+
+  <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :id => 'close', :class => BUTTONS_CLS['action'] %>
+</div>
