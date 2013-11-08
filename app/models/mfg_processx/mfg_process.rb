@@ -15,6 +15,6 @@ module MfgProcessx
     accepts_nested_attributes_for :process_steps, :allow_destroy => true
     
     validates :name, :presence => true,
-                     :uniqueness => {:scope => :rfq_id, :case_sensitive => false, :message => 'Duplicate Name!'}
+                     :uniqueness => {:scope => :rfq_id, :case_sensitive => false, :message => I18n.t('Duplicate Name!')}
   end
 end
