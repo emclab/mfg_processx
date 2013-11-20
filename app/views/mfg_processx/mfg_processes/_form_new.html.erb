@@ -1,8 +1,8 @@
-<%= simple_form_for(@mfg_process) do |f| %>    
-  <% if false %>
+<% if false %>
   <%= render inline: ERB.new(@erb_code).result(binding) %>
-  <% end %>
-  <% if true %>
+  
+<% else %>
+<%= simple_form_for(@mfg_process) do |f| %>    
   <%= f.input :rfq_id, :label => t('RFQ#'), :readonly => true %>
   <%= f.input :rfq_name, :label => t('RFQ Name/#'), :readonly => true, :input_html => {:value => @rfq.product_name + ' ' + @rfq.drawing_num} %>
   <%= f.input :rfq_material, :label => t('RFQ Material'), :readonly => true, :input_html => {:value => @rfq.material_requirement} %>
@@ -14,7 +14,9 @@
   &nbsp;&nbsp;<%=t('Process Steps:') %>
   <p><%= link_to_add_fields t('Add Step'), f, :process_steps %></p>
   <%= f.input :note, :label => t('Note'), :input_html => {:rows => 4} %>
-    
+  
+  <%= link_to t('Cancel'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>  
   <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %>  
   <% end %>
-<% end %> 
+
+<% end %>
