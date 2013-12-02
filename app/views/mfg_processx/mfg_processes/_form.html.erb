@@ -9,12 +9,12 @@
   <%= f.input :rfq_material, :label => t('RFQ Material'), :readonly => true, :input_html => {:value => @rfq.material_requirement} %>
   <%= f.input :rfq_tech_spec, :label => t('RFQ Tech Spec'), :readonly => true, :input_html => {:value => @rfq.tech_spec} %>
   <%= f.input :customer_name, :label => t('Customer'), :readonly => true, :input_html => {:value => @rfq.customer.try(:name)}%>
-  <%= f.input :name, :label => t('Process Name') %>
-  <%= f.input :description, :label => t('Process Desp'), :input_html => {:rows => 4}%>
+  <%= f.input :name, :label => t('Process Name'), :readonly => readonly?(@mfg_process, 'name') %>
+  <%= f.input :description, :label => t('Process Desp'), :input_html => {:rows => 4}, :readonly => readonly?(@mfg_process, 'description') %>
   
   &nbsp;&nbsp;<%=t('Process Steps:') %>
   <p><%= link_to_add_fields t('Add Step'), f, :process_steps %></p>
-  <%= f.input :note, :label => t('Note'), :input_html => {:rows => 4} %>
+  <%= f.input :note, :label => t('Note'), :input_html => {:rows => 4}, :readonly => readonly?(@mfg_process, 'note') %>
   <% if readonly?(@mfg_process, 'void')%>
      <%= f.input :void_noupdate, :label => t('Void'), :readonly => true, :required => false, :input_html => {:value => @mfg_process.void} %>
   <% else %>
