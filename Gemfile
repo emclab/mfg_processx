@@ -12,7 +12,7 @@ gem "will_paginate"
 gem 'authentify', :path => '../authentify'  #for rspec test
 gem 'commonx', :path => '../commonx'
 gem 'jobshop_rfqx', :path => '../jobshop_rfqx'
-gem 'customerx', :path => '../customerx'
+gem 'kustomerx', :path => '../kustomerx'
 
 
 # Declare any dependencies that are still in development here instead of in

@@ -45,9 +45,9 @@ PATH
       will_paginate
 
 PATH
-  remote: ../customerx
+  remote: ../jobshop_rfqx
   specs:
-    customerx (0.0.1)
+    jobshop_rfqx (3.2.12.01)
       coffee-rails (~> 3.2.1)
       database_cleaner
       execjs
@@ -59,9 +59,9 @@ PATH
       will_paginate
 
 PATH
-  remote: ../jobshop_rfqx
+  remote: ../kustomerx
   specs:
-    jobshop_rfqx (3.2.12.01)
+    kustomerx (3.2.12.01)
       coffee-rails (~> 3.2.1)
       database_cleaner
       execjs
@@ -220,10 +220,10 @@ DEPENDENCIES
   authentify!
   capybara
   commonx!
-  customerx!
   factory_girl_rails
   jobshop_rfqx!
   jquery-rails (~> 2.3.0)
+  kustomerx!
   launchy
   mfg_processx!
   rspec-rails (>= 2.0.0)
