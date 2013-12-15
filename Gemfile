@@ -13,6 +13,7 @@ gem 'authentify', :path => '../authentify'  #for rspec test
 gem 'commonx', :path => '../commonx'
 gem 'jobshop_rfqx', :path => '../jobshop_rfqx'
 gem 'kustomerx', :path => '../kustomerx'
+gem 'searchx', :path => '../searchx'
 
 
 # Declare any dependencies that are still in development here instead of in
