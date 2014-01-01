@@ -26,6 +26,7 @@ module MfgProcessx
       if @mfg_process.save
         redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Saved!")
       else
+        @rfq = MfgProcessx.rfq_class.find_by_id(params[:mfg_process][:rfq_id]) if params[:mfg_process].present? && params[:mfg_process][:rfq_id].present?
         flash[:notice] = t('Data Error. Not Saved!')
         render 'new'
       end
