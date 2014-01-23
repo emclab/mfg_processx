@@ -61,8 +61,13 @@
     <p></p>  
   <% end %>
 </p>
-
-  <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :id => 'close', :class => BUTTONS_CLS['action'] %>
+	<table class="table table-striped">
+	  <tr>
+	    <th>  		          
+  			<%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :id => 'close', :class => BUTTONS_CLS['action'] %>
+       </th>
+	  </tr>
+	</table> 
 </div>
 
 <% end %>
