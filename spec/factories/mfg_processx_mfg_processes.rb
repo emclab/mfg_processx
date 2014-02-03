@@ -10,5 +10,6 @@ FactoryGirl.define do
     void false
     note "MyText"
     wfid "MyString"
+    wf_state ''
   end
 end

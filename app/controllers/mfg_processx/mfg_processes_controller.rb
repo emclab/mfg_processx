@@ -10,13 +10,13 @@ module MfgProcessx
       @mfg_processes = params[:mfg_processx_mfg_processes][:model_ar_r]
       @mfg_processes = @mfg_processes.where(:rfq_id => @rfq.id) if @rfq
       @mfg_processes = @mfg_processes.page(params[:page]).per_page(@max_pagination)
-      @erb_code = find_config_const('mfg_process_index_view', 'mfg_processx_mfg_processes')
+      @erb_code = find_config_const('mfg_process_index_view', 'mfg_processx')
     end
   
     def new
       @title = t('New Mfg Processe')
       @mfg_process = MfgProcessx::MfgProcess.new()
-      @erb_code = find_config_const('mfg_process_new_view', 'mfg_processx_mfg_processes')
+      @erb_code = find_config_const('mfg_process_new_view', 'mfg_processx')
     end
   
     def create
@@ -35,7 +35,7 @@ module MfgProcessx
     def edit
       @title = t('Update Mfg Processe')
       @mfg_process = MfgProcessx::MfgProcess.find_by_id(params[:id])
-      @erb_code = find_config_const('mfg_process_edit_view', 'mfg_processx_mfg_processes')
+      @erb_code = find_config_const('mfg_process_edit_view', 'mfg_processx')
     end
   
     def update
@@ -52,7 +52,7 @@ module MfgProcessx
     def show
       @title = t('Mfg Processe Info')
       @mfg_process = MfgProcessx::MfgProcess.find_by_id(params[:id])
-      @erb_code = find_config_const('mfg_process_show_view', 'mfg_processx_mfg_processes')
+      @erb_code = find_config_const('mfg_process_show_view', 'mfg_processx')
     end
     
     protected

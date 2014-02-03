@@ -9,10 +9,12 @@ class CreateMfgProcessxMfgProcesses < ActiveRecord::Migration
       t.boolean :void, :default => false
       t.text :note
       t.string :wfid
+      t.string :wf_state
 
       t.timestamps
     end
     
     add_index :mfg_processx_mfg_processes, :rfq_id
+    add_index :mfg_processx_mfg_processes, :wf_state
   end
 end
