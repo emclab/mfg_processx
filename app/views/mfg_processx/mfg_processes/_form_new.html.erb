@@ -1,9 +1,9 @@
 <% if @view_in_config && @erb_code %>
-  <%= render inline: ERB.new(@erb_code).result(binding) %>
+  <%= render inline: @erb_code %>
   
 <% else %>
 <%= simple_form_for(@mfg_process) do |f| %>    
-  <%= f.input :rfq_id, :label => t('RFQ#'), :readonly => true %>
+  <%= f.input :rfq_id, :label => t('RFQ#'), :readonly => true, :input_html => {:value => @rfq.id} %>
   <%= f.input :rfq_name, :label => t('RFQ Name/#'), :readonly => true, :input_html => {:value => @rfq.product_name + ' ' + @rfq.drawing_num} %>
   <%= f.input :rfq_material, :label => t('RFQ Material'), :readonly => true, :input_html => {:value => @rfq.material_requirement} %>
   <%= f.input :rfq_tech_spec, :label => t('RFQ Tech Spec'), :readonly => true, :input_html => {:value => @rfq.tech_spec} %>
