@@ -1,10 +1,10 @@
 <div class="fields">
     
   <%= f.input :name, :label => t('Step Name') %> 
-  <%= f.input :step_desp, :label => t('Step Spec'), :input_html => {:rows => 4} %> 
-  <%= f.input :op_desp, :label => t('Operation Desp'), :input_html => {:rows => 4} %>
-  <%= f.input :insp_desp, :label => t('Inspection Desp'), :input_html => {:rows => 4} %>
-  <%= f.input :cutter_desp, :label => t('Cutter Desp'), :input_html => {:rows => 4} %>
+  <%= f.input :step_desp, :label => t('Step Spec'), :input_html => {:rows => 1} %> 
+  <%= f.input :op_desp, :label => t('Operation Desp'), :input_html => {:rows => 1} %>
+  <%= f.input :insp_desp, :label => t('Inspection Desp'), :input_html => {:rows => 1} %>
+  <%= f.input :cutter_desp, :label => t('Cutter Desp'), :input_html => {:rows => 1} %>
   <%= f.input :machine_tool_category_id, :label => t('Machine Category'), :collection => Commonx::CommonxHelper.return_misc_definitions('equipment_category'), :include_blank => true %>  
   <%= f.input :step_duration_sec, :label => t('Step Duration(s)'), :placeholder => 'x.xx'%> 
   <%= f.input :op_cost_hourly, :label => t('Operation Cost($/h)'), :placeholder => 'x.xx' %> 
