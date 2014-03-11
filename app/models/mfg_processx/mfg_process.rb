@@ -18,5 +18,7 @@ module MfgProcessx
     
     validates :name, :presence => true,
                      :uniqueness => {:scope => :rfq_id, :case_sensitive => false, :message => I18n.t('Duplicate Name!')}
+    validates :rfq_id, :presence => true,
+                       :numericality => {:greater_than => 0}
   end
 end
