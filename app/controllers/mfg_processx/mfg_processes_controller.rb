@@ -27,6 +27,7 @@ module MfgProcessx
         redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Saved!")
       else
         @rfq = MfgProcessx.rfq_class.find_by_id(params[:mfg_process][:rfq_id]) if params[:mfg_process].present? && params[:mfg_process][:rfq_id].present?
+        @erb_code = find_config_const('mfg_process_new_view', 'mfg_processx')
         flash[:notice] = t('Data Error. Not Saved!')
         render 'new'
       end
@@ -44,6 +45,7 @@ module MfgProcessx
       if @mfg_process.update_attributes(params[:mfg_process], :as => :role_update)
         redirect_to URI.escape(SUBURI + "/authentify/view_handler?index=0&msg=Successfully Updated!")
       else
+        @erb_code = find_config_const('mfg_process_edit_view', 'mfg_processx')
         flash[:notice] = t('Data Error. Not Updated!')
         render 'edit'
       end
